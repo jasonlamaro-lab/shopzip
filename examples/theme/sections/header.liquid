@@ -1,0 +1,18 @@
+<header>
+  <h1>{{ shop.name }}</h1>
+  {{ section.settings.header_text }}
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "header_text",
+      "label": "Header Text",
+      "default": "Welcome"
+    }
+  ]
+}
+{% endschema %}
