@@ -1,0 +1,97 @@
+{% comment %}
+  Cart template
+{% endcomment %}
+
+<div class="cart-page" style="padding: 40px 0;">
+  <h1 style="font-size: 36px; margin-bottom: 30px; text-align: center;">Shopping Cart</h1>
+
+  {% if cart.item_count > 0 %}
+    <form action="/cart" method="post" novalidate>
+      <div style="max-width: 900px; margin: 0 auto;">
+        {% for item in cart.items %}
+          <div style="display: grid; grid-template-columns: 100px 1fr auto; gap: 20px; padding: 20px; border-bottom: 1px solid #e0e0e0; align-items: center;">
+            
+            <div>
+              {% if item.image %}
+                <img 
+                  src="{{ item.image | image_url: width: 100 }}" 
+                  alt="{{ item.title | escape }}"
+                  style="width: 100%; border-radius: 4px;"
+                >
+              {% endif %}
+            </div>
+
+            <div>
+              <h3 style="font-size: 18px; margin-bottom: 5px;">
+                <a href="{{ item.url }}" style="text-decoration: none; color: #333;">{{ item.product.title }}</a>
+              </h3>
+              {% if item.variant.title != 'Default Title' %}
+                <p style="color: #666; font-size: 14px;">{{ item.variant.title }}</p>
+              {% endif %}
+              <p style="color: #667eea; font-weight: bold; margin-top: 5px;">{{ item.price | money }}</p>
+              
+              <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+                <label>Quantity:</label>
+                <input 
+                  type="number" 
+                  name="updates[]" 
+                  id="updates_{{ item.key }}" 
+                  value="{{ item.quantity }}" 
+                  min="0"
+                  style="width: 60px; padding: 5px; border: 1px solid #ddd; border-radius: 4px;"
+                >
+              </div>
+            </div>
+
+            <div style="text-align: right;">
+              <p style="font-size: 20px; font-weight: bold; color: #667eea;">
+                {{ item.line_price | money }}
+              </p>
+              <a 
+                href="/cart/change?line={{ forloop.index }}&quantity=0" 
+                style="color: #dc3545; text-decoration: none; font-size: 14px; margin-top: 10px; display: inline-block;"
+              >
+                Remove
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+
+        <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <span style="font-size: 20px;">Subtotal:</span>
+            <span style="font-size: 24px; font-weight: bold; color: #667eea;">{{ cart.total_price | money }}</span>
+          </div>
+
+          <div style="display: flex; gap: 10px;">
+            <button 
+              type="submit" 
+              name="update"
+              style="flex: 1; background: #6c757d; color: white; padding: 12px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;"
+            >
+              Update Cart
+            </button>
+            
+            <button 
+              type="submit" 
+              name="checkout"
+              style="flex: 1; background: #667eea; color: white; padding: 12px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold;"
+            >
+              Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  {% else %}
+    <div style="text-align: center; padding: 60px 20px;">
+      <p style="font-size: 20px; margin-bottom: 20px; color: #666;">Your cart is empty.</p>
+      <a 
+        href="/collections/all" 
+        style="display: inline-block; background: #667eea; color: white; padding: 15px 40px; text-decoration: none; border-radius: 5px; font-weight: bold;"
+      >
+        Continue Shopping
+      </a>
+    </div>
+  {% endif %}
+</div>

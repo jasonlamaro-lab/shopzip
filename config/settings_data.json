@@ -1,0 +1,24 @@
+{
+  "current": {
+    "color_primary": "#667eea",
+    "color_secondary": "#764ba2",
+    "color_text": "#333333",
+    "color_background": "#ffffff",
+    "type_header_font": "assistant_n4",
+    "type_body_font": "assistant_n4",
+    "page_width": 1200,
+    "products_per_page": 16,
+    "products_per_row_desktop": 4,
+    "products_per_row_mobile": 2,
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {}
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      }
+    }
+  }
+}
