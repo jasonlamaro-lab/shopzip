@@ -25,18 +25,20 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Product image gallery
-  const thumbnails = document.querySelectorAll('.product-images img[style*="cursor"]');
-  const mainImage = document.querySelector('.product-images img:first-child');
-  
-  thumbnails.forEach(thumb => {
-    thumb.addEventListener('click', function() {
-      if (mainImage) {
-        const tempSrc = mainImage.src;
-        mainImage.src = this.src;
-        this.src = tempSrc;
-      }
+  const productImagesContainer = document.querySelector('.product-images');
+  if (productImagesContainer) {
+    const mainImage = productImagesContainer.querySelector('img:first-child');
+    const thumbnails = productImagesContainer.querySelectorAll('img[style*="cursor"]');
+    
+    thumbnails.forEach((thumb, index) => {
+      thumb.addEventListener('click', function() {
+        if (mainImage && this.src !== mainImage.src) {
+          mainImage.src = this.src;
+          mainImage.alt = this.alt;
+        }
+      });
     });
-  });
+  }
 
   // Cart quantity updates
   const quantityInputs = document.querySelectorAll('input[name="updates[]"]');
