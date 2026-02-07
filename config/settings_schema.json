@@ -1,0 +1,126 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "ShopZip Theme",
+    "theme_version": "1.0.0",
+    "theme_author": "ShopZip",
+    "theme_documentation_url": "https://github.com/jasonlamaro-lab/shopzip",
+    "theme_support_url": "https://github.com/jasonlamaro-lab/shopzip/issues"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Theme Colors"
+      },
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary Color",
+        "default": "#667eea"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary Color",
+        "default": "#764ba2"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text Color",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background Color",
+        "default": "#ffffff"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Font Settings"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "default": "assistant_n4",
+        "label": "Heading Font",
+        "info": "Select your heading font family"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "default": "assistant_n4",
+        "label": "Body Font",
+        "info": "Select your body text font family"
+      }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Page Layout"
+      },
+      {
+        "type": "range",
+        "id": "page_width",
+        "min": 1000,
+        "max": 1600,
+        "step": 100,
+        "unit": "px",
+        "label": "Page Width",
+        "default": 1200
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
+    ]
+  },
+  {
+    "name": "Product Grid",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Collection Page"
+      },
+      {
+        "type": "range",
+        "id": "products_per_page",
+        "min": 8,
+        "max": 48,
+        "step": 4,
+        "label": "Products Per Page",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "products_per_row_desktop",
+        "min": 2,
+        "max": 5,
+        "step": 1,
+        "label": "Products Per Row (Desktop)",
+        "default": 4
+      },
+      {
+        "type": "range",
+        "id": "products_per_row_mobile",
+        "min": 1,
+        "max": 2,
+        "step": 1,
+        "label": "Products Per Row (Mobile)",
+        "default": 2
+      }
+    ]
+  }
+]
