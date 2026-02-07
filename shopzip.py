@@ -8,7 +8,6 @@ including themes, assets, and configurations.
 
 import os
 import zipfile
-import json
 import argparse
 from datetime import datetime
 from pathlib import Path
